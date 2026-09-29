@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videó-összefoglalók</title>
+  <style>
+    :root {
+      --bg-main: #0b0f19;
+      --bg-card: #151d30;
+      --bg-card-hover: #1c263f;
+      --border: #232f48;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-sub: #64748b;
+      --accent-indigo: #6366f1;
+      --accent-blue: #38bdf8;
+      --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg-main); color: var(--text-main); font-family: var(--font-family); line-height: 1.6; min-height: 100vh; }
+
+    header { background: rgba(11,15,25,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; padding: 0.9rem 1.5rem; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .brand h1 { font-size: 1.15rem; font-weight: 700; }
+    .brand p { font-size: 0.8rem; color: var(--text-muted); }
+
+    .toolbar { display: flex; gap: 0.6rem; align-items: center; flex: 1; justify-content: flex-end; min-width: 260px; }
+    .search { position: relative; flex: 1; max-width: 420px; }
+    .search input { width: 100%; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.55rem 0.9rem 0.55rem 2.3rem; color: var(--text-main); font-size: 0.9rem; outline: none; }
+    .search input:focus { border-color: var(--accent-indigo); }
+    .search span { position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: var(--text-sub); }
+    select { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-main); border-radius: 8px; padding: 0.55rem 0.6rem; font-size: 0.85rem; }
+
+    main { max-width: 1200px; margin: 1.5rem auto 3rem; padding: 0 1.5rem; }
+    .count { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 1.25rem; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: all 0.2s ease; }
+    .card:hover { border-color: var(--accent-indigo); background: var(--bg-card-hover); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(99,102,241,0.2); }
+    .thumb { position: relative; padding-top: 56.25%; background: #000; }
+    .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+    .num { position: absolute; top: 0.6rem; left: 0.6rem; background: var(--accent-indigo); color: #fff; font-weight: 800; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 6px; }
+    .badge { position: absolute; top: 0.6rem; right: 0.6rem; background: #dc2626; color: #fff; font-weight: 800; font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 6px; }
+    .body { padding: 1rem 1.1rem 1.1rem; display: flex; flex-direction: column; gap: 0.45rem; flex: 1; }
+    .title { font-size: 1rem; font-weight: 700; line-height: 1.35; }
+    .sub { font-size: 0.8rem; color: var(--accent-blue); }
+    .desc { font-size: 0.85rem; color: #cbd5e1; flex: 1; }
+    .meta { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.35rem; }
+    .chip { font-size: 0.72rem; font-weight: 600; color: var(--text-muted); background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 0.1rem 0.5rem; border-radius: 6px; }
+    .file { font-family: monospace; font-size: 0.72rem; color: var(--text-sub); word-break: break-all; }
+    .empty { display: none; text-align: center; color: var(--text-muted); padding: 3rem 0; }
+
+    footer { border-top: 1px solid var(--border); padding: 1.5rem; text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <h1>Videó-összefoglalók</h1>
+        <p>Fejezetekre bontott, időkódos összefoglalók</p>
+      </div>
+      <div class="toolbar">
+        <div class="search"><span>🔍</span><input id="q" type="text" placeholder="Keresés cím, leírás, szereplők szerint…" oninput="render()"></div>
+        <select id="sort" onchange="render()">
+          <option value="num">Sorszám szerint</option>
+          <option value="new">Legújabb elöl</option>
+          <option value="old">Legrégebbi elöl</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="count" id="count"></div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty">Nincs találat.</div>
+  </main>
+
+  <footer>video-summary &copy; Generalsoft</footer>
+
+  <script>
+    const ITEMS = [
+      {
+        file: "01 - 444 külpolitika.html",
+        vid: "ZESdJ8okRZc",
+        badge: "444",
+        title: "444 Külpolitika – „Ha nem háborúznánk, mégis mit csinálnánk?”",
+        sub: "Takácsy Dorka & Takács Márk",
+        desc: "Szolnoki Gripen-baleset, légicsapások, fronthelyzet, duma-választások, veteránok.",
+        date: "2026-08-26",
+        sections: 8, stamps: 27
+      },
+      {
+        file: "02 - őstörténet.html",
+        vid: "BXYCFGE2Lkc",
+        badge: "Válasz",
+        title: "Kétszáz éves őstörténeti vitákat döntenek el az új archeogenetikai kutatások",
+        sub: "Szécsényi-Nagy Anna & Türk Attila • Műsorvezető: Borbás Barna",
+        desc: "Válasz Online – őstörténeti és archeogenetikai összefoglaló.",
+        date: "2026-09-02",
+        sections: 7, stamps: 12
+      },
+      {
+        file: "03 - Burnham Labour-konferencia.html",
+        vid: "ChoEAy2jHes",
+        badge: "UK",
+        title: "Andy Burnham – Labour-konferencia beszéd, Liverpool",
+        sub: "PoliticsJOE • „Did Andy Burnham Just Change Britain?”",
+        desc: "Víz- és energia-köztulajdon, áram-áfa és 2 fontos buszjegy, Nemzeti Gondozási Szolgálat, nyugdíj, fiatalok, választási reform, Brexit.",
+        date: "2026-09-29",
+        sections: 11, stamps: 88
+      }
+    ];
+
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const fmtDate = d => new Date(d).toLocaleDateString('hu-HU', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    function render() {
+      const q = document.getElementById('q').value.trim().toLowerCase();
+      const sort = document.getElementById('sort').value;
+      let list = ITEMS.filter(it => !q || [it.file, it.title, it.sub, it.desc, it.badge].join(' ').toLowerCase().includes(q));
+      if (sort === 'new') list.sort((a, b) => b.date.localeCompare(a.date));
+      else if (sort === 'old') list.sort((a, b) => a.date.localeCompare(b.date));
+      else list.sort((a, b) => a.file.localeCompare(b.file, 'hu'));
+
+      document.getElementById('grid').innerHTML = list.map(it => `
+        <a class="card" href="${encodeURIComponent(it.file)}">
+          <div class="thumb">
+            <img src="https://img.youtube.com/vi/${it.vid}/hqdefault.jpg" alt="" loading="lazy">
+            <span class="num">${esc(it.file.split(' ')[0])}</span>
+            <span class="badge">${esc(it.badge)}</span>
+          </div>
+          <div class="body">
+            <div class="title">${esc(it.title)}</div>
+            <div class="sub">${esc(it.sub)}</div>
+            <div class="desc">${esc(it.desc)}</div>
+            <div class="meta">
+              <span class="chip">📅 ${fmtDate(it.date)}</span>
+              <span class="chip">${it.sections} fejezet</span>
+              <span class="chip">▶ ${it.stamps} időkód</span>
+            </div>
+            <div class="file">${esc(it.file)}</div>
+          </div>
+        </a>`).join('');
+      document.getElementById('count').textContent = `${list.length} / ${ITEMS.length} összefoglaló`;
+      document.getElementById('empty').style.display = list.length ? 'none' : 'block';
+    }
+    render();
+  </script>
+</body>
+</html>

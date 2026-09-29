@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Válasz Online – Őstörténeti és Archeogenetikai Összefoglaló</title>
+  <style>
+    :root {
+      --bg-main: #0b1120;
+      --bg-card: #162036;
+      --bg-card-hover: #1e2c4a;
+      --bg-active: rgba(99, 102, 241, 0.16);
+      --border: #263554;
+      --border-active: #6366f1;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-sub: #64748b;
+      --accent-indigo: #6366f1;
+      --accent-blue: #38bdf8;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-red: #ef4444;
+      --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    #protocolNotice {
+      display: none;
+      background: linear-gradient(90deg, #7f1d1d, #991b1b);
+      color: #fef2f2;
+      padding: 0.65rem 1.2rem;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #ef4444;
+      text-align: center;
+    }
+
+    #protocolNotice code {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    header {
+      background: rgba(11, 17, 32, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .nav-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-logo {
+      background: linear-gradient(135deg, #0284c7, #6366f1);
+      color: white;
+      font-weight: 900;
+      font-size: 1.05rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-text h1 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .layout-grid {
+      max-width: 1440px;
+      margin: 1.5rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 1100px) {
+      .layout-grid { grid-template-columns: 1fr; }
+    }
+
+    .sticky-player-col {
+      position: sticky;
+      top: 4.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    @media (max-width: 1100px) {
+      .sticky-player-col { position: relative; top: 0; }
+    }
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    .video-box iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%; border: none;
+    }
+
+    .player-ctrls {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .now-playing-box {
+      background: rgba(11, 17, 32, 0.7);
+      border-left: 4px solid var(--accent-indigo);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .now-playing-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--accent-indigo);
+    }
+
+    .now-playing-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .current-time-badge {
+      font-family: monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      background: var(--border);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .btn-row { display: flex; gap: 0.5rem; }
+
+    .ctrl-btn {
+      flex: 1;
+      background: var(--border);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      padding: 0.55rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+
+    .ctrl-btn:hover { background: #334468; }
+
+    .ctrl-btn-primary {
+      background: var(--accent-indigo);
+      border-color: var(--accent-indigo);
+      color: white;
+    }
+
+    .ctrl-btn-red {
+      background: #dc2626;
+      border-color: #dc2626;
+      color: white;
+      flex: 0 0 auto;
+      padding: 0.55rem 0.85rem;
+    }
+
+    .stats-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .stat-val { font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); }
+    .stat-lbl { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+
+    .content-col { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .filter-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .search-input:focus { border-color: var(--accent-indigo); }
+
+    .category-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .pill.active {
+      background: var(--accent-indigo);
+      color: #fff;
+      border-color: var(--accent-indigo);
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.35rem;
+      transition: all 0.2s ease;
+    }
+
+    .section-card:hover { border-color: #3b507a; background: var(--bg-card-hover); }
+
+    .section-card.highlighted {
+      border-color: var(--accent-indigo);
+      background: var(--bg-active);
+      box-shadow: 0 0 0 1px var(--accent-indigo), 0 8px 25px rgba(99, 102, 241, 0.2);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+    }
+
+    .section-title { font-size: 1.1rem; font-weight: 700; color: var(--text-main); }
+
+    .ts-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      vertical-align: middle;
+      margin: 0 0.2rem;
+    }
+
+    .ts-chip:hover {
+      background: var(--accent-indigo);
+      border-color: var(--accent-indigo);
+      color: white;
+    }
+
+    .ext-yt-inline {
+      color: #ef4444;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: bold;
+      opacity: 0.75;
+      margin-left: 2px;
+    }
+
+    .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.25rem;
+      color: var(--accent-indigo);
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .bullet-bold { font-weight: 700; color: #f8fafc; }
+  </style>
+</head>
+<body>
+
+  <div id="protocolNotice">
+    ⚠️ <strong>Helyi fájl mód (file://):</strong> A YouTube beágyazása intézőből közvetlenül megnyitva letiltható. Indítsd el helyi webszerverről (pl. Live Server), vagy kattints a piros <strong>[↗]</strong> linkekre a YouTube megnyitásához!
+  </div>
+
+  <header>
+    <div class="nav-inner">
+      <a href="https://www.youtube.com/watch?v=BXYCFGE2Lkc" target="_blank" class="brand-wrap">
+        <span class="brand-logo">Válasz Online</span>
+        <div class="brand-text">
+          <h1>Kétszáz éves őstörténeti vitákat döntenek el az új archeogenetikai kutatások</h1>
+          <p>Szécsényi-Nagy Anna & Türk Attila • Műsorvezető: Borbás Barna</p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=BXYCFGE2Lkc" target="_blank" class="ctrl-btn ctrl-btn-red" style="flex:0;">Videó a YouTube-on ↗</a>
+    </div>
+  </header>
+
+  <div class="layout-grid">
+    <!-- Left Column: Video & Controls -->
+    <div class="sticky-player-col">
+      <div class="video-box">
+        <iframe 
+          id="ytPlayer"
+          src="https://www.youtube-nocookie.com/embed/BXYCFGE2Lkc?enablejsapi=1&playsinline=1&rel=0&modestbranding=1" 
+          title="Válasz Online videó" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="player-ctrls">
+        <div class="now-playing-box">
+          <div style="overflow:hidden;">
+            <div class="now-playing-label" id="activeLabel">Aktuális fejezet</div>
+            <div class="now-playing-title" id="activeTitle">Válassz témát az áttekintéshez</div>
+          </div>
+          <div class="current-time-badge" id="timeDisplay">00:00</div>
+        </div>
+
+        <div class="btn-row">
+          <button class="ctrl-btn" onclick="seekRelative(-10)">⏪ -10s</button>
+          <button class="ctrl-btn ctrl-btn-primary" id="playBtn" onclick="togglePlayPause()">▶ Lejátszás</button>
+          <button class="ctrl-btn" onclick="seekRelative(10)">+10s ⏩</button>
+          <a id="directYtBtn" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc" target="_blank" class="ctrl-btn ctrl-btn-red">YT ↗</a>
+        </div>
+      </div>
+
+      <div class="stats-card">
+        <div>
+          <div class="stat-val">1:19:15</div>
+          <div class="stat-lbl">Hossz</div>
+        </div>
+        <div>
+          <div class="stat-val">7</div>
+          <div class="stat-lbl">Főtémakör</div>
+        </div>
+        <div>
+          <div class="stat-val">2026. feb.</div>
+          <div class="stat-lbl">Megjelenés</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Sections -->
+    <div class="content-col">
+      <div class="filter-section">
+        <input type="text" id="searchInput" class="search-input" placeholder="Keresés témák, nevek vagy kifejezések között (pl. Ujelgi, Julianus, hsziungnuk, rekombináció)..." oninput="handleSearch()">
+        <div class="category-pills">
+          <button class="pill active" onclick="filterCat('all', this)">Összes téma</button>
+          <button class="pill" onclick="filterCat('genetika', this)">Archeogenetika</button>
+          <button class="pill" onclick="filterCat('ural', this)">Urál & Magna Hungaria</button>
+          <button class="pill" onclick="filterCat('hun', this)">Hunok & Hsziungnuk</button>
+          <button class="pill" onclick="filterCat('hagyomany', this)">Identitás & Hagyomány</button>
+        </div>
+      </div>
+
+      <!-- Section 1 -->
+      <section class="section-card" data-cat="genetika" id="sec-1">
+        <div class="section-header">
+          <h2 class="section-title">1. A módszertani forradalom: a teljes genomszintű elemzés</h2>
+          <span class="badge">Genetika</span>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-bold">Mitokondrium vs. teljes genom:</span> A korábbi kutatások csak az anyai (mitokondriális DNS) és apai (Y-kromoszóma) vonalakat vizsgálták, amelyek csak egy-egy felmenőről adnak képet.
+            <button class="ts-chip" onclick="jumpTo(239, 1, 'Módszertani ugrás')">▶ 00:03:59</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=239s" target="_blank">↗</a>
+          </li>
+          <li>
+            <span class="bullet-bold">1,2 millió SNP vizsgálata:</span> A 2020-as évekre lezajlott forradalom révén ma már több mint 1,2 millió pozíciót elemeznek a testi kromoszómákon (autoszómákon), követve a generációnkénti kb. 70 genetikai rekombinációt és az IBD rokonsági hálózatokat.
+            <button class="ts-chip" onclick="jumpTo(285, 1, 'Autoszomális genomika')">▶ 00:04:45</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=285s" target="_blank">↗</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="section-card" data-cat="ural" id="sec-2">
+        <div class="section-header">
+          <h2 class="section-title">2. A The Cell-tanulmány és az Urál-vidéki lelőhelyek</h2>
+          <span class="badge">Urál & Régészet</span>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-bold">Ujelgi és Karajakupovo:</span> A Türk Attila vezetésével 2013 óta feltárt dél-uráli temetők leletei bizonyítottan közvetlen genetikai kapcsolatot mutatnak a 10. századi honfoglalókkal.
+            <button class="ts-chip" onclick="jumpTo(443, 2, 'Dél-uráli kapcsolat igazolása')">▶ 00:07:23</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=443s" target="_blank">↗</a>
+          </li>
+          <li>
+            <span class="bullet-bold">Szargatkai gyökerek:</span> Az Urál térségében élt korai csoportok génállománya döntően (70–90%) a nyugat-szibériai Szargatka-kultúrához kapcsolódik.
+            <button class="ts-chip" onclick="jumpTo(765, 2, 'Nyugat-szibériai szál')">▶ 00:12:45</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=765s" target="_blank">↗</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="section-card" data-cat="ural" id="sec-3">
+        <div class="section-header">
+          <h2 class="section-title">3. Kétszáz éves vita vége: természettudományos bizonyíték</h2>
+          <span class="badge">Őstörténet</span>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-bold">Több mint nyelvészet:</span> A magyarság vándorlási útvonalát és uráli kapcsolatait eddig csak nyelvészeti modellek vázolták fel. Most először természettudományos leletekkel zárult le a 18. század vége óta húzódó történelmi dilemma.
+            <button class="ts-chip" onclick="jumpTo(1155, 3, 'A vita lezárása')">▶ 00:19:15</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=1155s" target="_blank">↗</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="section-card" data-cat="ural" id="sec-4">
+        <div class="section-header">
+          <h2 class="section-title">4. Julianus barát magyarjai és a kései asszimiláció</h2>
+          <span class="badge">Magna Hungaria</span>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-bold">Magna Hungaria valósága:</span> Igazolást nyert a Julianus barát által 1235-ben megtalált keleten maradt magyar népesség létezése és elhelyezkedése a Volga–Urál régióban.
+            <button class="ts-chip" onclick="jumpTo(1960, 4, 'Julianus barát magyarjai')">▶ 00:32:40</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=1960s" target="_blank">↗</a>
+          </li>
+          <li>
+            <span class="bullet-bold">Baskír és török beolvadás:</span> A keleten maradt néptöredékek a tatárjárást követő századokban fokozatosan beolvadtak a formálódó baskírságba és környező népekbe.
+            <button class="ts-chip" onclick="jumpTo(2290, 4, 'Keleti asszimiláció')">▶ 00:38:10</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=2290s" target="_blank">↗</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="section-card" data-cat="genetika" id="sec-5">
+        <div class="section-header">
+          <h2 class="section-title">5. Belső-ázsiai komponensek a honfoglalókban</h2>
+          <span class="badge">Vándorlás & Sztyeppe</span>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-bold">Etelközi és sztyeppei csatlakozók:</span> A Kárpát-medencébe érkező népességben kimutatható olyan belső-ázsiai genetikai elem, amely az Urál-vidéki sírokban még nem szerepelt – ez a vándorlás során, szövetségi úton csatlakozott.
+            <button class="ts-chip" onclick="jumpTo(2950, 5, 'Belső-ázsiai komponensek')">▶ 00:49:10</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=2950s" target="_blank">↗</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 6 -->
+      <section class="section-card" data-cat="hun" id="sec-6">
+        <div class="section-header">
+          <h2 class="section-title">6. A hun kérdés: a hsziungnuk és a hunok felszívódása</h2>
+          <span class="badge">Hunok</span>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-bold">Hsziungnu kapcsolat:</span> Genetikailag igazolható az ázsiai hunok (hsziungnuk) és a 4–5. századi európai hun elit közötti kapcsolat.
+            <button class="ts-chip" onclick="jumpTo(3975, 6, 'Hsziungnu-hun kapcsolat')">▶ 01:06:15</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=3975s" target="_blank">↗</a>
+          </li>
+          <li>
+            <span class="bullet-bold">Csak 7% belső-ázsiai:</span> A Kárpát-medence hun kori lakosságának mindössze 7%-a volt keleti eredetű, és a birodalom összeomlása után ez a réteg genetikailag gyakorlatilag nyomtalanul felszívódott.
+            <button class="ts-chip" onclick="jumpTo(4180, 6, 'A hunok felszívódása')">▶ 01:09:40</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=4180s" target="_blank">↗</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section class="section-card" data-cat="hagyomany" id="sec-7">
+        <div class="section-header">
+          <h2 class="section-title">7. Mítosz és valóság: az Attila-hagyomány továbbélése</h2>
+          <span class="badge">Mondavilág & Nyelv</span>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-bold">Presztízshagyomány a sztyeppén:</span> Attila alakja akkora tekintélyt jelentett, hogy a hun politikai hagyományt és mondakincset a sztyeppei nomád népek szájhagyomány útján örökítették tovább függetlenül a vérségi leszármazástól.
+            <button class="ts-chip" onclick="jumpTo(4536, 7, 'Attila-hagyomány és identitás')">▶ 01:15:36</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=4536s" target="_blank">↗</a>
+          </li>
+          <li>
+            <span class="bullet-bold">Szervezettség és nyelvi integráció:</span> Bár a honfoglalók genetikai értelemben kisebbségben voltak a helyi Kárpát-medencei lakossághoz képest, erős politikai és katonai kohéziójuk révén ők formálták a saját képükre a térség nyelvét.
+            <button class="ts-chip" onclick="jumpTo(4400, 7, 'Kulturális dominancia')">▶ 01:13:20</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=4400s" target="_blank">↗</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    let player = null;
+    let timeInterval = null;
+    let currentCategory = 'all';
+
+    if (window.location.protocol === 'file:') {
+      const notice = document.getElementById('protocolNotice');
+      if (notice) notice.style.display = 'block';
+    }
+
+    function onYouTubeIframeAPIReady() {
+      try {
+        player = new YT.Player('ytPlayer', {
+          events: {
+            'onReady': () => startTimeTracking(),
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    function onPlayerStateChange(e) {
+      const btn = document.getElementById('playBtn');
+      btn.textContent = (e.data === YT.PlayerState.PLAYING) ? '⏸ Szünet' : '▶ Lejátszás';
+    }
+
+    function togglePlayPause() {
+      if (player && typeof player.getPlayerState === 'function') {
+        if (player.getPlayerState() === YT.PlayerState.PLAYING) player.pauseVideo();
+        else player.playVideo();
+      }
+    }
+
+    function seekRelative(sec) {
+      if (player && typeof player.getCurrentTime === 'function') {
+        player.seekTo(Math.max(0, player.getCurrentTime() + sec), true);
+      }
+    }
+
+    function jumpTo(seconds, secId, label) {
+      document.querySelectorAll('.section-card').forEach(s => s.classList.remove('highlighted'));
+      const activeCard = document.getElementById(`sec-${secId}`);
+      if (activeCard) activeCard.classList.add('highlighted');
+
+      document.getElementById('activeLabel').textContent = `Fejezet ${secId}`;
+      document.getElementById('activeTitle').textContent = label;
+
+      const directYt = document.getElementById('directYtBtn');
+      if (directYt) directYt.href = `https://www.youtube.com/watch?v=BXYCFGE2Lkc&t=${seconds}s`;
+
+      if (player && typeof player.seekTo === 'function') {
+        player.seekTo(seconds, true);
+        player.playVideo();
+      } else {
+        const iframe = document.getElementById('ytPlayer');
+        iframe.src = `https://www.youtube-nocookie.com/embed/BXYCFGE2Lkc?autoplay=1&start=${seconds}&enablejsapi=1&rel=0`;
+      }
+
+      if (window.innerWidth < 1100) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function startTimeTracking() {
+      if (timeInterval) clearInterval(timeInterval);
+      timeInterval = setInterval(() => {
+        if (player && typeof player.getCurrentTime === 'function') {
+          const t = player.getCurrentTime();
+          if (t >= 0) {
+            const m = Math.floor(t / 60);
+            const s = Math.floor(t % 60);
+            document.getElementById('timeDisplay').textContent =
+              (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+          }
+        }
+      }, 500);
+    }
+
+    function filterCat(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    }
+
+    function handleSearch() {
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      document.querySelectorAll('.section-card').forEach(card => {
+        const matchesCategory = currentCategory === 'all' || card.dataset.cat === currentCategory;
+        const matchesSearch = card.innerText.toLowerCase().includes(q);
+        card.style.display = (matchesCategory && matchesSearch) ? 'block' : 'none';
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('sec-1').classList.add('highlighted');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>444.hu Külpolitikai Összefoglaló – Ha nem háborúznánk, mégis mit csinálnánk?</title>
+	<!-- Open Graph / Facebook Meta Tagek -->
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="444 Külpolitika Navigátor">
+	<meta property="og:url" content="https://www.youtube.com/watch?v=ZESdJ8okRZc">
+	<meta property="og:title" content="444 Külpolitika – „Ha nem háborúznánk, mégis mit csinálnánk?”">
+	<meta property="og:description" content="Részletes, fejezetekre bontott összefoglaló és interaktív videónavigátor a 444.hu külpolitikai műsorához: Szolnoki Gripen-baleset, légicsapások, fronthelyzet, duma-választások, veteránok.">
+	<meta property="og:image" content="https://img.youtube.com/vi/ZESdJ8okRZc/maxresdefault.jpg">
+	<meta property="og:image:secure_url" content="https://img.youtube.com/vi/ZESdJ8okRZc/maxresdefault.jpg">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="1280">
+	<meta property="og:image:height" content="720">
+
+	<!-- Twitter Card Meta Tagek -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="444 Külpolitika – „Ha nem háborúznánk, mégis mit csinálnánk?”">
+	<meta name="twitter:description" content="Részletes, fejezetekre bontott összefoglaló és interaktív videónavigátor a 444.hu külpolitikai műsorához.">
+	<meta name="twitter:image" content="https://img.youtube.com/vi/ZESdJ8okRZc/maxresdefault.jpg">  
+  <style>
+    :root {
+      --bg-main: #0b0f19;
+      --bg-card: #151d30;
+      --bg-card-hover: #1c263f;
+      --bg-active: rgba(99, 102, 241, 0.15);
+      --border: #232f48;
+      --border-active: #6366f1;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-sub: #64748b;
+      --accent-indigo: #6366f1;
+      --accent-indigo-hover: #4f46e5;
+      --accent-blue: #38bdf8;
+      --accent-red: #ef4444;
+      --accent-green: #10b981;
+      --accent-amber: #f59e0b;
+      --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Warning for file:// protocol */
+    #protocolNotice {
+      display: none;
+      background: linear-gradient(90deg, #7f1d1d, #991b1b);
+      color: #fef2f2;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #ef4444;
+      text-align: center;
+    }
+
+    #protocolNotice code {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-weight: bold;
+    }
+
+    /* Top Navigation */
+    header {
+      background: rgba(11, 15, 25, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .nav-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .badge-444 {
+      background: #dc2626;
+      color: white;
+      font-weight: 900;
+      font-size: 1.1rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-text h1 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .header-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+
+    .header-btn:hover {
+      background: var(--border);
+      border-color: var(--text-muted);
+    }
+
+    .header-btn-yt {
+      background: rgba(220, 38, 38, 0.2);
+      border-color: rgba(220, 38, 38, 0.4);
+      color: #fca5a5;
+    }
+
+    .header-btn-yt:hover {
+      background: #dc2626;
+      color: white;
+      border-color: #dc2626;
+    }
+
+    /* Main Grid Layout */
+    .layout-grid {
+      max-width: 1440px;
+      margin: 1.5rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 1100px) {
+      .layout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Left Sticky Column */
+    .sticky-player-col {
+      position: sticky;
+      top: 4.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    @media (max-width: 1100px) {
+      .sticky-player-col {
+        position: relative;
+        top: 0;
+      }
+    }
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .video-box iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .player-ctrls {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .now-playing-box {
+      background: rgba(11, 15, 25, 0.6);
+      border-left: 4px solid var(--accent-indigo);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .now-playing-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--accent-indigo);
+    }
+
+    .now-playing-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--text-main);
+    }
+
+    .current-time-badge {
+      font-family: monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      background: var(--border);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .ctrl-btn {
+      flex: 1;
+      background: var(--border);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      padding: 0.55rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+
+    .ctrl-btn:hover {
+      background: #334155;
+    }
+
+    .ctrl-btn-primary {
+      background: var(--accent-indigo);
+      border-color: var(--accent-indigo);
+      color: white;
+    }
+
+    .ctrl-btn-primary:hover {
+      background: var(--accent-indigo-hover);
+    }
+
+    .ctrl-btn-red {
+      background: #dc2626;
+      border-color: #dc2626;
+      color: white;
+      flex: 0 0 auto;
+      padding: 0.55rem 0.85rem;
+    }
+
+    .ctrl-btn-red:hover {
+      background: #b91c1c;
+    }
+
+    /* Quick jump table of contents */
+    .toc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    .toc-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .toc-item a {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+
+    .toc-item a:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .toc-num {
+      width: 18px;
+      height: 18px;
+      background: var(--border);
+      color: var(--accent-blue);
+      font-size: 0.7rem;
+      font-weight: 700;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Right Column: Full Text Summaries */
+    .content-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .search-filter-box {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .search-bar {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.7rem 1rem 0.7rem 2.5rem;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-bar input:focus {
+      border-color: var(--accent-indigo);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-sub);
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .section-card:hover {
+      border-color: #3b4d75;
+      background: var(--bg-card-hover);
+    }
+
+    .section-card.highlighted {
+      border-color: var(--accent-indigo);
+      background: var(--bg-active);
+      box-shadow: 0 0 0 1px var(--accent-indigo), 0 8px 25px rgba(99, 102, 241, 0.2);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-index {
+      background: var(--accent-indigo);
+      color: white;
+      font-weight: 800;
+      font-size: 0.85rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Timestamp Links */
+    .ts-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      vertical-align: middle;
+      margin: 0 0.2rem;
+    }
+
+    .ts-chip:hover {
+      background: var(--accent-indigo);
+      border-color: var(--accent-indigo);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .ts-chip .play-mini {
+      font-size: 0.7rem;
+    }
+
+    .ext-yt-inline {
+      color: #ef4444;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: bold;
+      opacity: 0.7;
+      margin-left: 2px;
+      transition: opacity 0.15s;
+    }
+
+    .ext-yt-inline:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.25rem;
+      top: 0;
+      color: var(--accent-indigo);
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+
+    .bullet-title {
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .sub-bullets {
+      list-style: none;
+      margin-top: 0.4rem;
+      margin-left: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .sub-bullets li {
+      padding-left: 1.2rem;
+      font-size: 0.88rem;
+    }
+
+    .sub-bullets li::before {
+      content: "–";
+      color: var(--accent-blue);
+      left: 0.2rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--accent-indigo);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Notice when opening file:// directly -->
+  <div id="protocolNotice">
+    ⚠️ <strong>Helyi fájl mód (file://) érzékelve:</strong> A YouTube korlátozza a beágyazást (Hiba 153), ha közvetlenül intézőből nyitod meg. Javasolt helyi szerverről nyitni (pl. <code>python -m http.server</code> vagy Live Server), vagy használd a gombok melletti piros <strong>[↗ YT]</strong> linkeket a közvetlen YouTube-megnyitáshoz!
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-inner">
+      <a href="https://www.youtube.com/watch?v=ZESdJ8okRZc" target="_blank" class="brand-wrap">
+        <span class="badge-444">444</span>
+        <div class="brand-text">
+          <h1>444 Külpolitika – Részletes műsorösszefoglaló</h1>
+          <p>„Ha nem háborúznánk, mégis mit csinálnánk?” • Takácsy Dorka & Takács Márk</p>
+        </div>
+      </a>
+      <div class="header-links">
+        <a href="https://www.youtube.com/watch?v=ZESdJ8okRZc" target="_blank" class="header-btn header-btn-yt" id="headerYtLink">
+          <span>Videó a YouTube-on ↗</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout -->
+  <div class="layout-grid">
+    
+    <!-- Left Column: Video & Controls -->
+    <div class="sticky-player-col">
+      
+      <!-- Video Player -->
+      <div class="video-box">
+        <iframe 
+          id="ytPlayer"
+          src="https://www.youtube-nocookie.com/embed/ZESdJ8okRZc?enablejsapi=1&playsinline=1&rel=0&modestbranding=1" 
+          title="444.hu videó" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Controls card -->
+      <div class="player-ctrls">
+        <div class="now-playing-box">
+          <div style="overflow:hidden;">
+            <div class="now-playing-label" id="activeLabel">Aktuális témakör</div>
+            <div class="now-playing-title" id="activeTitle">Kattints bármelyik időkódra a szövegben</div>
+          </div>
+          <div class="current-time-badge" id="timeDisplay">00:00</div>
+        </div>
+
+        <div class="btn-row">
+          <button class="ctrl-btn" onclick="seekRelative(-10)" title="Vissza 10 másodperc">⏪ -10s</button>
+          <button class="ctrl-btn ctrl-btn-primary" id="playBtn" onclick="togglePlayPause()">▶ Lejátszás</button>
+          <button class="ctrl-btn" onclick="seekRelative(10)" title="Előre 10 másodperc">+10s ⏩</button>
+          <a id="directYtBtn" href="https://www.youtube.com/watch?v=ZESdJ8okRZc" target="_blank" class="ctrl-btn ctrl-btn-red" title="Megnyitás közvetlenül a YouTube-on">
+            YT ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Section Jump -->
+      <div class="toc-card">
+        <div class="toc-title">Fejezetek áttekintése</div>
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#sec-1"><span class="toc-num">1</span> Magyar vonatkozás: Gripen-baleset</a></li>
+          <li class="toc-item"><a href="#sec-2"><span class="toc-num">2</span> Légicsapások és civil áldozatok</a></li>
+          <li class="toc-item"><a href="#sec-3"><span class="toc-num">3</span> Fegyverszállítások & Ukrán gyártás</a></li>
+          <li class="toc-item"><a href="#sec-4"><span class="toc-num">4</span> Ukrán belpolitika & Választások</a></li>
+          <li class="toc-item"><a href="#sec-5"><span class="toc-num">5</span> Fronthelyzet & Téli holtpont</a></li>
+          <li class="toc-item"><a href="#sec-6"><span class="toc-num">6</span> Duma-választások & Ellenzék</a></li>
+          <li class="toc-item"><a href="#sec-7"><span class="toc-num">7</span> Veszteségek, toborzás & Veteránok</a></li>
+          <li class="toc-item"><a href="#sec-8"><span class="toc-num">8</span> NATO keleti szárny & USA jelenlét</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Full Summaries with Embedded Links -->
+    <div class="content-col">
+
+      <div class="search-filter-box">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="filterInput" placeholder="Keresés az összefoglaló szövegében (pl. Patriot, Nagyezsdin, Jabloko, Liman, Kocka)..." oninput="filterSections()">
+        </div>
+      </div>
+
+      <!-- Section 1 -->
+      <section class="section-card" id="sec-1" data-sec="1">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-index">1</span>
+            <h2 class="section-title">Magyar vonatkozás: A szolnoki Gripen-baleset</h2>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-title">A baleset részletei:</span> Szolnok közelében lezuhant a Magyar Honvédség 31-es oldalszámú, együléses JAS-39 Gripen vadászgépe 
+            <button class="ts-chip" onclick="jumpTo(48, 1, 'Szolnoki Gripen-baleset')"><span class="play-mini">▶</span> 00:00:48</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=48s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">A pilóta és a kényszerhelyzet:</span> A gépet egy tapasztalt pilóta vezette, aki éles riasztási gyakorlat során hidraulikai hibát észlelt, majd megkísérelte letenni a gépet a szolnoki repülőtéren 
+            <button class="ts-chip" onclick="jumpTo(108, 1, 'Kényszerleszállási kísérlet')"><span class="play-mini">▶</span> 00:01:48</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=108s" target="_blank" title="Megnyitás a YouTube-on">↗</a>. A leszállás során a Martin-Baker katapultülésnek köszönhetően épségben elhagyta a gépet 
+            <button class="ts-chip" onclick="jumpTo(64, 1, 'Sikeres katapultálás')"><span class="play-mini">▶</span> 00:01:04</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=64s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Fegyverzet és fenntartás:</span> A gép a készenléti szolgálatnak megfelelően éles fegyverzettel repült; a svéd lízingszerződés és a baleseti statisztikák alapján a magyar flotta repült órái és felkészültsége NATO-szinten is kifejezetten jónak mondható 
+            <button class="ts-chip" onclick="jumpTo(216, 1, 'Fegyverzet és lízing háttér')"><span class="play-mini">▶</span> 00:03:36</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=216s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="section-card" id="sec-2" data-sec="2">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-index">2</span>
+            <h2 class="section-title">Légicsapások és civil áldozatok Ukrajnában</h2>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-title">Orosz stratégia:</span> Az orosz légi hadjárat változatlan célja a lakosság és az energetikai infrastruktúra megtörése, bár a történelem tanúsága szerint pusztán légi hadjárattal még nem nyertek háborút 
+            <button class="ts-chip" onclick="jumpTo(393, 2, 'Orosz légi stratégia')"><span class="play-mini">▶</span> 00:06:33</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=393s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Légvédelmi hiányosságok:</span> Ukrajna a Sahíd-drónok mintegy 90%-át és a robotrepülőgépek jelentős részét semlegesíti, a ballisztikus rakéták elfogási aránya viszont minimális (0–5%) a kritikus Patriot-rakétahiány miatt 
+            <button class="ts-chip" onclick="jumpTo(499, 2, 'Légvédelmi hatékonyság')"><span class="play-mini">▶</span> 00:08:19</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=499s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Ukrán mélységi csapások:</span> Az ukrán haderő sikeres dróntámadásokat hajt végre orosz kőolajfinomítók, rakétaalkatrész-gyárak és logisztikai bázisok (pl. Ozon, Wildberries) ellen, aminek következtében Oroszország importra szorult bizonyos kőolajtermékekből 
+            <button class="ts-chip" onclick="jumpTo(556, 2, 'Ukrán mélységi csapások')"><span class="play-mini">▶</span> 00:09:16</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=556s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Hadviselési különbségek:</span> A szakértők szerint Oroszország szisztematikusan rombolja a polgári és kulturális infrastruktúrát (múzeumok, templomok, iskolák), míg az ukrán csapásoknál a civil károk döntően járulékosak 
+            <button class="ts-chip" onclick="jumpTo(724, 2, 'Kulturális rombolás & célpontok')"><span class="play-mini">▶</span> 00:12:04</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=724s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="section-card" id="sec-3" data-sec="3">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-index">3</span>
+            <h2 class="section-title">Nyugati fegyverszállítások és saját ukrán gyártás</h2>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-title">Patriot és rakétahiány:</span> Bár a politikai szándék elviekben megvan a nyugati támogatásra, a gyártási kapacitások és a készletek korlátozottak az Egyesült Államokban is 
+            <button class="ts-chip" onclick="jumpTo(977, 3, 'Patriot kapacitások')"><span class="play-mini">▶</span> 00:16:17</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=977s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Technológiatranszfer:</span> A brit Storm Shadow robotrepülőgépek dokumentációjának megosztása mellett Ukrajna saját fejlesztésű, költséghatékony mélységi csapásmérő eszközök gyártását is felpörgette 
+            <button class="ts-chip" onclick="jumpTo(1088, 3, 'Storm Shadow és ukrán gyártás')"><span class="play-mini">▶</span> 00:18:08</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=1088s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="section-card" id="sec-4" data-sec="4">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-index">4</span>
+            <h2 class="section-title">Ukrán belpolitika és a választások felvetése</h2>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-title">Politikai vita a választásokról:</span> A kormányváltás és a hadsereg népszerű vezetőinek elmozdítása után a korábbi védelmi miniszter és más közszereplők újra megnyitották a kérdést a lehetséges elnökválasztásokról 
+            <button class="ts-chip" onclick="jumpTo(1167, 4, 'Fedorov és a választások felvetése')"><span class="play-mini">▶</span> 00:19:27</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=1167s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Közvélemény:</span> Bár a hadiállapot miatt a választások jogilag jelenleg nem lehetségesek, felmérések szerint az ukránok 57%-a csak a háború teljes lezárása után szavazna, míg 23%-uk már egy tűzszünet és biztonsági garanciák esetén is elfogadná azt 
+            <button class="ts-chip" onclick="jumpTo(1357, 4, 'Ukrán közvélemény-kutatások')"><span class="play-mini">▶</span> 00:22:37</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=1357s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="section-card" id="sec-5" data-sec="5">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-index">5</span>
+            <h2 class="section-title">Fronthelyzet és hadműveleti kilátások</h2>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-title">Taktikai viszonyok:</span> A sűrű növényzet és az álcázási lehetőségek meghatározzák a műveleteket; a front több szakaszán kis létszámú rohamcsoportok harcolnak 
+            <button class="ts-chip" onclick="jumpTo(1548, 5, 'Taktika és terepviszonyok')"><span class="play-mini">▶</span> 00:25:48</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=1548s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Kiemelt frontszakaszok:</span>
+            <ul class="sub-bullets">
+              <li>Az orosz erők lassan haladnak a Szlovjanszk–Kramatorszk irányban 
+                <button class="ts-chip" onclick="jumpTo(1577, 5, 'Szlovjanszk-Kramatorszk front')"><span class="play-mini">▶</span> 00:26:17</button>
+                <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=1577s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+              </li>
+              <li>Az ukrán dandárok sikeres ellenlökéseket és bekerítéseket hajtottak végre Liman térségében és a déli területeken 
+                <button class="ts-chip" onclick="jumpTo(1654, 5, 'Liman ellentámadás')"><span class="play-mini">▶</span> 00:27:34</button>
+                <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=1654s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="bullet-title">Téli holtpont:</span> A várakozások szerint a hideg beálltával mindkét fél elérheti hadműveleti teljesítőképességének határát 
+            <button class="ts-chip" onclick="jumpTo(1848, 5, 'Várható téli holtpont')"><span class="play-mini">▶</span> 00:30:48</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=1848s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Orosz narratíva:</span> A háború befejezéséről szóló bizonytalan jelzések ellenére Putyin belső nyilvánosságnak szánt megszólalásai („Ha nem háborúznánk, mégis mit csinálnánk?”) nem mutatnak érdemi irányváltást 
+            <button class="ts-chip" onclick="jumpTo(1926, 5, 'Putyin megszólalása')"><span class="play-mini">▶</span> 00:32:06</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=1926s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 6 -->
+      <section class="section-card" id="sec-6" data-sec="6">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-index">6</span>
+            <h2 class="section-title">Oroszországi duma-választások és az ellenzék felszámolása</h2>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-title">Ellenőrzött választási rendszer:</span> A szeptemberi háromnapos duma- és regionális választásokon valódi verseny nincs; a hatalom által létrehozott „bábellenzéki” pártok (pl. Új Emberek, Kommunisták) a rendszer keretein belül maradnak 
+            <button class="ts-chip" onclick="jumpTo(2174, 6, 'Duma választások mechanizmusa')"><span class="play-mini">▶</span> 00:36:14</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=2174s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">A Jabloko kizárása:</span> Az egyetlen nyíltan háborúellenes pártot mondvacsinált szerzői jogi ürüggyel tiltották el az indulástól egy békedal kampányvideóban történt használata miatt 
+            <button class="ts-chip" onclick="jumpTo(2400, 6, 'A Jabloko kizárása & békedal')"><span class="play-mini">▶</span> 00:40:00</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=2400s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Elnyomó intézkedések:</span>
+            <ul class="sub-bullets">
+              <li>Borisz Nagyezsdin háborúellenes jelöltet külföldi ügynökké nyilvánították és bírságokkal ellehetetlenítették, ami után külföldre távozott 
+                <button class="ts-chip" onclick="jumpTo(3431, 6, 'Nagyezsdin ellehetetlenítése')"><span class="play-mini">▶</span> 00:57:11</button>
+                <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=3431s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+              </li>
+              <li>Lev Schlossberget 11 év börtönre ítélték korábbi háborúellenes bejegyzései és felvételei miatt 
+                <button class="ts-chip" onclick="jumpTo(3500, 6, 'Schlossberg 11 éves büntetése')"><span class="play-mini">▶</span> 00:58:20</button>
+                <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=3500s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+              </li>
+              <li>A Kreml az úgynevezett „körhinta-letartóztatásokkal” (újra és újra kreált szabálysértésekkel) tartja rács mögött vagy kényszeríti emigrációba a kényelmetlen személyeket 
+                <button class="ts-chip" onclick="jumpTo(3630, 6, 'Körhinta-letartóztatások')"><span class="play-mini">▶</span> 01:00:30</button>
+                <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=3630s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section class="section-card" id="sec-7" data-sec="7">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-index">7</span>
+            <h2 class="section-title">Veszteségek, toborzás és a háború hátországi hatásai</h2>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-title">Becsült veszteségek:</span> A becslések alapján az orosz oldalon 500 000 elesett és mintegy 1,2 millió sebesült, míg ukrán oldalon körülbelül 160 000 halott és 500 000 sebesült lehet a teljes veszteséglista 
+            <button class="ts-chip" onclick="jumpTo(2608, 7, 'Reális veszteségi becslések')"><span class="play-mini">▶</span> 00:43:28</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=2608s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Kényszertoborzási módszerek:</span> A nyílt mozgósítástól való lakossági félelmek miatt a hatóságok agresszív szerződtetési kampányokat folytatnak (egyetemi zsarolások, megtévesztő hirdetések, kiszolgáltatott vagy alkoholproblémákkal küzdő rétegek besorozása) 
+            <button class="ts-chip" onclick="jumpTo(2822, 7, 'Kényszertoborzási módszerek')"><span class="play-mini">▶</span> 00:47:02</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=2822s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Hazatérő veteránok:</span> A frontról visszatérő, korábban súlyos bűncselekményekért elítélt és PTSD-ben szenvedő katonák mentelmi jogot élveznek, ami az erőszakos és családon belüli bűncselekmények növekedéséhez vezet az orosz hátországban 
+            <button class="ts-chip" onclick="jumpTo(3041, 7, 'Bűnöző veteránok & erőszakhullám')"><span class="play-mini">▶</span> 00:50:41</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=3041s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 8 -->
+      <section class="section-card" id="sec-8" data-sec="8">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-index">8</span>
+            <h2 class="section-title">A NATO keleti szárnya és az amerikai jelenlét</h2>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-title">Költségvállalás:</span> A keleti szárny országai (köztük Románia) készek nagyobb anyagi terhet vállalni az amerikai támaszpontok fenntartásáért, hogy megelőzzék a csapatkivonásokat 
+            <button class="ts-chip" onclick="jumpTo(3781, 8, 'Keleti szárny bázisfinanszírozás')"><span class="play-mini">▶</span> 01:03:01</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=3781s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+          <li>
+            <span class="bullet-title">Stratégiai szerep:</span> Bár az európai NATO-tagállamok hagyományos hadereje önmagában is jelentős, az amerikai katonai jelenlét kritikus hírszerzési, haditengerészeti és elrettentő garanciát jelent az orosz agresszióval szemben 
+            <button class="ts-chip" onclick="jumpTo(3890, 8, 'USA stratégiai szerepe Európában')"><span class="play-mini">▶</span> 01:04:50</button>
+            <a class="ext-yt-inline" href="https://www.youtube.com/watch?v=ZESdJ8okRZc&t=3890s" target="_blank" title="Megnyitás a YouTube-on">↗</a>.
+          </li>
+        </ul>
+      </section>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Készült a <a href="https://www.youtube.com/watch?v=ZESdJ8okRZc" target="_blank">444.hu külpolitikai elemző műsora</a> alapján.</p>
+  </footer>
+
+  <!-- YouTube Iframe API Script -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <script>
+    let player = null;
+    let timeInterval = null;
+    let activeSec = 1;
+
+    // Check protocol
+    if (window.location.protocol === 'file:') {
+      const notice = document.getElementById('protocolNotice');
+      if (notice) notice.style.display = 'block';
+    }
+
+    // YouTube API init
+    function onYouTubeIframeAPIReady() {
+      try {
+        player = new YT.Player('ytPlayer', {
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      } catch (e) {
+        console.warn("YouTube API init:", e);
+      }
+    }
+
+    function onPlayerReady(event) {
+      startTimeCheck();
+    }
+
+    function onPlayerStateChange(event) {
+      const btn = document.getElementById('playBtn');
+      if (event.data === YT.PlayerState.PLAYING) {
+        btn.textContent = '⏸ Szünet';
+      } else {
+        btn.textContent = '▶ Lejátszás';
+      }
+    }
+
+    function togglePlayPause() {
+      if (player && typeof player.getPlayerState === 'function') {
+        const s = player.getPlayerState();
+        if (s === YT.PlayerState.PLAYING) player.pauseVideo();
+        else player.playVideo();
+      } else {
+        const iframe = document.getElementById('ytPlayer');
+        iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      }
+    }
+
+    function seekRelative(delta) {
+      if (player && typeof player.getCurrentTime === 'function') {
+        const t = Math.max(0, player.getCurrentTime() + delta);
+        player.seekTo(t, true);
+      }
+    }
+
+    function jumpTo(seconds, sectionId, label) {
+      // Update UI active states
+      activeSec = sectionId;
+      document.querySelectorAll('.section-card').forEach(card => {
+        if (parseInt(card.dataset.sec) === sectionId) {
+          card.classList.add('highlighted');
+        } else {
+          card.classList.remove('highlighted');
+        }
+      });
+
+      document.getElementById('activeLabel').textContent = `Fejezet ${sectionId}`;
+      document.getElementById('activeTitle').textContent = label;
+
+      // Update external link buttons
+      const directYt = document.getElementById('directYtBtn');
+      const headerYt = document.getElementById('headerYtLink');
+      const targetUrl = `https://www.youtube.com/watch?v=ZESdJ8okRZc&t=${seconds}s`;
+      if (directYt) directYt.href = targetUrl;
+      if (headerYt) headerYt.href = targetUrl;
+
+      // Jump video
+      if (player && typeof player.seekTo === 'function') {
+        player.seekTo(seconds, true);
+        player.playVideo();
+      } else {
+        const iframe = document.getElementById('ytPlayer');
+        iframe.src = `https://www.youtube-nocookie.com/embed/ZESdJ8okRZc?autoplay=1&start=${seconds}&enablejsapi=1&rel=0`;
+      }
+
+      // Smooth scroll player into viewport if on small screens
+      if (window.innerWidth < 1100) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function startTimeCheck() {
+      if (timeInterval) clearInterval(timeInterval);
+      timeInterval = setInterval(() => {
+        if (player && typeof player.getCurrentTime === 'function') {
+          const t = player.getCurrentTime();
+          if (t >= 0) {
+            const m = Math.floor(t / 60);
+            const s = Math.floor(t % 60);
+            document.getElementById('timeDisplay').textContent = 
+              (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+          }
+        }
+      }, 500);
+    }
+
+    function filterSections() {
+      const q = document.getElementById('filterInput').value.toLowerCase();
+      document.querySelectorAll('.section-card').forEach(sec => {
+        const text = sec.innerText.toLowerCase();
+        if (text.includes(q)) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('sec-1').classList.add('highlighted');
+    });
+  </script>
+</body>
+</html>
